@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 //api i love apis so much they make me so happy and have never caused me any form of pain :) 
 app.get('/api/notes', (req, res) => {
-    fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, '/db/db.json'), 'utf8', (err, data) => {
       if (err) {
         console.error(err);
         return res.status(500).json({ error: 'Error reading notes from the database.' });
@@ -24,7 +24,7 @@ app.get('/api/notes', (req, res) => {
   });
 
   app.post('/api/notes', (req, res) => {
-    fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, '/db/db.json'), 'utf8', (err, data) => {
       if (err) {
         console.error(err);
         return res.status(500).json({ error: 'Error reading notes from the database.' });
@@ -37,7 +37,7 @@ app.get('/api/notes', (req, res) => {
       };
       notes.push(newNote);
   
-      fs.writeFile(path.join(__dirname, 'db.json'), JSON.stringify(notes), (err) => {
+      fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), (err) => {
         if (err) {
           console.error(err);
           return res.status(500).json({ error: 'Error saving the note to the database.' });
