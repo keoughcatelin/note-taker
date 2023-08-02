@@ -18,7 +18,7 @@
   
   ## Usage
   
-  type node server.js in your terminal
+  type npm start in your terminal
   
   ## License
   
